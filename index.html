@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight-steel">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
+  <meta name="theme-color" content="#06080f"/>
+  <meta name="description" content="HYPHEN CABLES – Enterprise Aluminium Conductor Costing Engine"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="CableCost"/>
+  <title>CableCost Pro v4.1 – HYPHEN CABLES</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════
+   THEME SYSTEM — 4 professional themes
+═══════════════════════════════════════════════ */
+:root,[data-theme="midnight-steel"]{
+  /* Deep navy-steel industrial — primary default */
+  --bg0:#06080f;--bg1:#090c15;--bg2:#0d1020;--bg3:#12162a;--bg4:#181d34;
+  --panel:rgba(255,255,255,0.032);--panel2:rgba(255,255,255,0.062);
+  --border:rgba(99,140,255,0.14);--border2:rgba(99,140,255,0.32);--border3:rgba(99,140,255,0.58);
+  --acc:#7eb3ff;--acc2:#4a8cff;--acc3:#c8dfff;
+  --accg:linear-gradient(135deg,#c8dfff,#7eb3ff,#4a8cff);
+  --cyan:#38e8d8;--cyan2:rgba(56,232,216,0.12);
+  --red:#ff5a5a;--red2:rgba(255,90,90,0.1);
+  --wa:#25d366;--wa2:rgba(37,211,102,0.1);
+  --text:#cdd5f0;--text2:#6a758f;--text3:#333c55;
+  --glow:0 0 50px rgba(78,140,255,0.2),0 0 100px rgba(78,140,255,0.08);
+  --orb1:rgba(60,110,255,0.09);--orb2:rgba(56,232,216,0.05);
+  --header-bg:linear-gradient(120deg,rgba(60,110,255,0.1),rgba(60,110,255,0.02));
+  --result-bg:linear-gradient(145deg,rgba(78,140,255,0.09),rgba(56,232,216,0.03));
+  --result-border:var(--acc);
+}
+[data-theme="electric-amber"]{
+  /* Deep charcoal with electric amber — premium industrial */
+  --bg0:#0a0800;--bg1:#0e0b00;--bg2:#141000;--bg3:#1a1500;--bg4:#221c00;
+  --panel:rgba(255,200,0,0.03);--panel2:rgba(255,200,0,0.07);
+  --border:rgba(220,160,0,0.16);--border2:rgba(220,160,0,0.36);--border3:rgba(220,160,0,0.62);
+  --acc:#ffcc00;--acc2:#e6a800;--acc3:#fff0a0;
+  --accg:linear-gradient(135deg,#fff0a0,#ffcc00,#e6a800);
+  --cyan:#00ddb8;--cyan2:rgba(0,221,184,0.12);
+  --red:#ff5555;--red2:rgba(255,85,85,0.1);
+  --wa:#25d366;--wa2:rgba(37,211,102,0.1);
+  --text:#e8ddb8;--text2:#7a6e48;--text3:#3e3820;
+  --glow:0 0 50px rgba(255,200,0,0.2),0 0 100px rgba(255,200,0,0.08);
+  --orb1:rgba(255,190,0,0.09);--orb2:rgba(0,220,180,0.05);
+  --header-bg:linear-gradient(120deg,rgba(255,190,0,0.1),rgba(255,190,0,0.02));
+  --result-bg:linear-gradient(145deg,rgba(255,200,0,0.1),rgba(0,221,184,0.03));
+  --result-border:var(--acc);
+}
+[data-theme="crimson-dark"]{
+  /* Deep black with crimson-red accents — bold industrial */
+  --bg0:#080506;--bg1:#0c0608;--bg2:#110a0c;--bg3:#160e10;--bg4:#1e1318;
+  --panel:rgba(255,60,80,0.032);--panel2:rgba(255,60,80,0.065);
+  --border:rgba(220,60,80,0.16);--border2:rgba(220,60,80,0.36);--border3:rgba(220,60,80,0.62);
+  --acc:#ff6b7a;--acc2:#e84055;--acc3:#ffc0c8;
+  --accg:linear-gradient(135deg,#ffc0c8,#ff6b7a,#e84055);
+  --cyan:#ff9f5a;--cyan2:rgba(255,159,90,0.12);
+  --red:#ff5a5a;--red2:rgba(255,90,90,0.1);
+  --wa:#25d366;--wa2:rgba(37,211,102,0.1);
+  --text:#f0d8dc;--text2:#8a6068;--text3:#4a3038;
+  --glow:0 0 50px rgba(232,64,85,0.22),0 0 100px rgba(232,64,85,0.09);
+  --orb1:rgba(220,50,75,0.1);--orb2:rgba(255,150,80,0.05);
+  --header-bg:linear-gradient(120deg,rgba(220,50,75,0.12),rgba(220,50,75,0.025));
+  --result-bg:linear-gradient(145deg,rgba(232,64,85,0.1),rgba(255,150,80,0.03));
+  --result-border:var(--acc);
+}
+[data-theme="clean-light"]{
+  /* Professional light with deep teal accents */
+  --bg0:#f2f4f8;--bg1:#f8f9fc;--bg2:#ffffff;--bg3:#f4f5f9;--bg4:#eceef5;
+  --panel:rgba(0,0,0,0.035);--panel2:rgba(0,0,0,0.068);
+  --border:rgba(0,80,180,0.1);--border2:rgba(0,80,180,0.22);--border3:rgba(0,80,180,0.42);
+  --acc:#1a65cc;--acc2:#0f4a9e;--acc3:#0a3070;
+  --accg:linear-gradient(135deg,#3d88ee,#1a65cc,#0f4a9e);
+  --cyan:#0098a8;--cyan2:rgba(0,152,168,0.1);
+  --red:#d63030;--red2:rgba(214,48,48,0.08);
+  --wa:#128c46;--wa2:rgba(18,140,70,0.08);
+  --text:#161a2e;--text2:#4a5270;--text3:#96a0b8;
+  --glow:0 0 24px rgba(26,101,204,0.14);
+  --orb1:rgba(26,101,204,0.05);--orb2:rgba(0,152,168,0.03);
+  --header-bg:linear-gradient(120deg,rgba(26,101,204,0.08),rgba(26,101,204,0.02));
+  --result-bg:linear-gradient(145deg,rgba(26,101,204,0.06),rgba(0,152,168,0.02));
+  --result-border:var(--acc);
+}
+
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--text);min-height:100dvh;overflow-x:hidden;transition:background 0.35s,color 0.35s;background-image:radial-gradient(ellipse 120% 80% at 50% -10%,var(--orb1) 0%,transparent 60%)}
+:root{--r:14px;--r2:20px;--r3:28px;--shadow:0 12px 48px rgba(0,0,0,0.7);--shadow2:0 4px 20px rgba(0,0,0,0.4);--font:'Outfit',sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.34,1.56,.64,1);--ease2:cubic-bezier(.4,0,.2,1)}
+
+/* ═══════════════════════════════════════════════
+   AMBIENT
+═══════════════════════════════════════════════ */
+.amb{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.amb-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 100% 70% at 50% 0%,black 20%,transparent 100%)}
+.amb-orb{position:absolute;border-radius:50%;filter:blur(100px);animation:orbDrift 14s ease-in-out infinite alternate}
+.o1{width:600px;height:600px;top:-200px;right:-100px;background:var(--orb1)}
+.o2{width:500px;height:500px;bottom:-100px;left:-150px;background:var(--orb2);animation-delay:-7s}
+@keyframes orbDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.08)}}
+
+/* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+.app{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:24px 16px 100px}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+.header{display:flex;align-items:center;gap:16px;padding:18px 24px;background:var(--header-bg);border:1px solid var(--border);border-radius:var(--r3);margin-bottom:22px;backdrop-filter:blur(24px);position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:0.5}
+.logo{width:50px;height:50px;flex-shrink:0;background:var(--accg);border-radius:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.08)}
+.logo svg{width:26px;height:26px}
+.hinfo{flex:1;min-width:0}
+.hinfo h1{font-size:clamp(0.9rem,2.4vw,1.2rem);font-weight:800;color:var(--acc3);letter-spacing:-0.02em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hinfo p{font-size:0.65rem;color:var(--text2);font-family:var(--mono);letter-spacing:0.12em;text-transform:uppercase;margin-top:3px}
+.hright{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ver-badge{background:var(--cyan2);border:1px solid rgba(0,216,232,0.25);color:var(--cyan);font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;padding:4px 9px;border-radius:6px;text-transform:uppercase}
+.hbtn{width:34px;height:34px;border-radius:9px;background:var(--panel2);border:1px solid var(--border);color:var(--text2);font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;flex-shrink:0}
+.hbtn:hover{border-color:var(--acc);color:var(--acc);box-shadow:var(--glow)}
+
+/* Theme switcher dropdown */
+.theme-wrap{position:relative}
+.theme-panel{display:none;position:absolute;top:calc(100% + 8px);right:0;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r);padding:8px;z-index:300;box-shadow:var(--shadow);width:180px;animation:dropIn 0.15s var(--ease)}
+.theme-panel.open{display:block}
+.theme-opt{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background 0.12s;font-size:0.8rem;font-weight:600;color:var(--text2)}
+.theme-opt:hover{background:var(--panel2);color:var(--text)}
+.theme-opt.active{background:var(--panel2);color:var(--acc);border-left:2px solid var(--acc)}
+.theme-swatch{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+
+/* ═══════════════════════════════════════════════
+   TYPE SWITCH
+═══════════════════════════════════════════════ */
+.type-sw{display:flex;gap:6px;background:var(--panel);border:1px solid var(--border);border-radius:var(--r2);padding:5px;margin-bottom:18px}
+.type-btn{flex:1;padding:11px 20px;background:transparent;border:1px solid transparent;border-radius:var(--r);font-family:var(--font);font-size:0.82rem;font-weight:700;color:var(--text2);cursor:pointer;transition:all 0.25s var(--ease2);letter-spacing:0.04em;display:flex;align-items:center;justify-content:center;gap:8px}
+.type-btn:hover{color:var(--text)}
+.type-btn.active{background:var(--panel2);border-color:var(--border2);color:var(--acc);box-shadow:0 0 0 1px var(--border2) inset,var(--glow)}
+
+/* ═══════════════════════════════════════════════
+   MAIN CARD
+═══════════════════════════════════════════════ */
+.main-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r3);padding:24px;backdrop-filter:blur(20px);margin-bottom:18px;position:relative}
+.main-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 10%,var(--border2) 50%,transparent 90%);opacity:0.8}
+
+.flabel{font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--acc);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.flabel::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.08),transparent)}
+
+/* Search */
+.srch-wrap{position:relative;z-index:10}
+.srch-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--acc);pointer-events:none;z-index:1;display:flex}
+.srch-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--text2);cursor:pointer;z-index:1;background:var(--bg3);border:none;width:26px;height:26px;border-radius:7px;display:none;align-items:center;justify-content:center;transition:all 0.15s;font-size:13px}
+.srch-clear.show{display:flex}
+.srch-clear:hover{color:var(--text);background:var(--bg4)}
+#sizeInput{width:100%;height:52px;padding:0 44px 0 48px;background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);color:var(--text);font-family:var(--font);font-size:0.96rem;font-weight:600;outline:none;transition:border-color 0.2s,box-shadow 0.2s,background 0.2s}
+#sizeInput:focus{border-color:var(--acc);background:var(--bg3);box-shadow:0 0 0 3px rgba(0,0,0,0.1),var(--glow)}
+#sizeInput::placeholder{color:var(--text3);font-weight:400}
+
+/* Dropdown */
+.dd{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--r2);overflow:hidden;z-index:200;box-shadow:var(--shadow);display:none;max-height:280px;overflow-y:auto}
+.dd.open{display:block;animation:dropIn 0.16s var(--ease)}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px) scale(0.98)}to{opacity:1;transform:none}}
+.dd-sh{padding:7px 14px 5px;font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--acc2);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border)}
+.dd-item{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.03);transition:background 0.1s;gap:12px}
+.dd-item:last-child{border-bottom:none}
+.dd-item:hover,.dd-item.hi{background:rgba(255,255,255,0.04)}
+.dd-il{flex:1;min-width:0}
+.dd-name{font-weight:700;font-size:0.92rem;color:var(--text)}
+.dd-name mark{background:rgba(255,255,255,0.12);color:var(--acc);border-radius:2px;padding:0 1px}
+.dd-meta{font-family:var(--mono);font-size:0.63rem;color:var(--text2);margin-top:1px}
+.dd-badge{font-family:var(--mono);font-size:0.68rem;color:var(--acc);background:rgba(255,255,255,0.05);border:1px solid var(--border2);padding:3px 8px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.dd-empty{padding:18px;color:var(--text2);font-size:0.8rem;text-align:center}
+.dd::-webkit-scrollbar{width:3px}
+.dd::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ═══════════════════════════════════════════════
+   VARIABLES PANEL
+═══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.vars-tog{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:12px 0;margin-top:14px;border-top:1px solid rgba(255,255,255,0.05);user-select:none}
+.vars-tog-l{display:flex;align-items:center;gap:8px;font-size:0.66rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text2)}
+.vars-arrow{color:var(--acc2);font-size:11px;transition:transform 0.25s var(--ease2)}
+.vars-tog.open .vars-arrow{transform:rotate(180deg)}
+.vars-body{display:none}
+.vars-body.open{display:block;animation:fadeUp 0.2s ease}
+
+.vg{margin-bottom:2px}
+.vg-header{display:flex;align-items:center;gap:8px;margin:12px 0 9px}
+.vg-label{font-size:0.58rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.vg-label.gold{color:var(--acc2)}
+.vg-label.cyan{color:var(--cyan)}
+.vg-divider{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.06),transparent)}
+.vg-reset{font-size:0.58rem;font-weight:700;color:var(--text3);cursor:pointer;padding:3px 8px;border:1px solid var(--border);border-radius:5px;background:transparent;font-family:var(--font);transition:all 0.15s;flex-shrink:0;white-space:nowrap}
+.vg-reset:hover{color:var(--acc2);border-color:var(--border2)}
+.vg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
+
+/* Weight % adjuster */
+/* Per-field weight % reduction buttons */
+.vf-pct-row{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.vf-pct-btn{height:22px;padding:0 8px;background:rgba(255,79,79,0.07);border:1px solid rgba(255,79,79,0.2);border-radius:20px;color:rgba(255,110,110,0.85);font-family:var(--mono);font-size:0.64rem;font-weight:700;cursor:pointer;transition:all 0.15s;white-space:nowrap;letter-spacing:0.02em}
+.vf-pct-btn:hover{background:rgba(255,79,79,0.18);border-color:rgba(255,79,79,0.48);color:var(--red);transform:translateY(-1px);box-shadow:0 2px 8px rgba(255,79,79,0.12)}
+.vf-pct-btn:active{transform:none}
+.vf-pct-rst{height:22px;width:26px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;color:var(--text3);font-size:0.74rem;cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;justify-content:center}
+.vf-pct-rst:hover{color:var(--acc2);border-color:var(--border2)}
+.wf-pct-badge{display:inline-block;font-size:0.53rem;font-weight:800;padding:1px 5px;border-radius:4px;background:rgba(255,79,79,0.1);border:1px solid rgba(255,79,79,0.22);color:var(--red);vertical-align:middle;margin-left:4px;font-family:var(--mono);letter-spacing:0.02em}
+
+/* Field */
+.vf{display:flex;flex-direction:column;gap:4px}
+.vf-label{display:flex;align-items:baseline;justify-content:space-between;gap:4px}
+.vf-name{font-size:0.61rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text2)}
+.vf-default{font-family:var(--mono);font-size:0.56rem;color:var(--text3)}
+.vf-iw{position:relative}
+.vf-px{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:0.72rem;color:var(--acc2);pointer-events:none}
+.vf-px.cyan{color:var(--cyan);opacity:0.7}
+.vf input{width:100%;height:36px;padding:0 9px 0 24px;background:var(--bg2);border:1.5px solid var(--border);border-radius:9px;color:var(--text);font-family:var(--mono);font-size:0.86rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.vf input:focus{border-color:var(--acc);box-shadow:0 0 0 2px rgba(0,0,0,0.1)}
+.vf input.modified{border-color:rgba(0,216,232,0.5)!important}
+
+/* ═══════════════════════════════════════════════
+   STATS BAR
+═══════════════════════════════════════════════ */
+.stats-bar{display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.stats-bar.show{display:grid;animation:fadeUp 0.2s ease}
+.stat-pill{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;text-align:center}
+.stat-l{font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);margin-bottom:4px}
+.stat-v{font-family:var(--mono);font-size:0.86rem;font-weight:700;color:var(--text)}
+.stat-v.gd{color:var(--acc);font-size:0.9rem}
+
+/* ═══════════════════════════════════════════════
+   RESULT CARD
+═══════════════════════════════════════════════ */
+.result-card{display:none;background:var(--result-bg,linear-gradient(145deg,rgba(78,140,255,0.09),rgba(56,232,216,0.03)));border:1.5px solid var(--result-border,var(--acc));border-radius:var(--r3);overflow:hidden;margin-bottom:18px;box-shadow:var(--glow)}
+.result-card.visible{display:block;animation:cardReveal 0.4s var(--ease)}
+@keyframes cardReveal{from{opacity:0;transform:scale(0.95) translateY(14px)}to{opacity:1;transform:none}}
+.res-topbar{background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);padding:9px 24px;display:flex;align-items:center;justify-content:space-between}
+.res-type{font-size:0.6rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc2);display:flex;align-items:center;gap:6px}
+.res-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc),0 0 20px var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+.res-ts{font-family:var(--mono);font-size:0.58rem;color:var(--text3)}
+.res-body{padding:28px 24px;text-align:center}
+.res-name{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:900;color:var(--text);letter-spacing:-0.04em;line-height:1;margin-bottom:5px}
+.res-specs{font-family:var(--mono);font-size:0.7rem;color:var(--text2);margin-bottom:26px}
+.price-cur{font-size:clamp(1.1rem,2.8vw,1.5rem);font-weight:700;color:var(--acc2);vertical-align:top;line-height:1.6;font-family:var(--mono)}
+.price-amt{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:900;background:var(--accg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.05em;line-height:1;display:inline-block;filter:drop-shadow(0 2px 20px rgba(0,0,0,0.5))}
+.price-sfx{font-family:var(--mono);font-size:0.66rem;color:var(--text2);letter-spacing:0.1em;margin-bottom:24px;display:block}
+.bk-toggle-btn{display:inline-flex;align-items:center;gap:7px;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--acc2);cursor:pointer;padding:8px 16px;border:1px solid rgba(255,255,255,0.1);border-radius:7px;background:rgba(255,255,255,0.03);font-family:var(--font);transition:all 0.2s}
+.bk-toggle-btn:hover{background:rgba(255,255,255,0.07);color:var(--acc)}
+.bk-chev{transition:transform 0.25s var(--ease2)}
+.bk-toggle-btn.open .bk-chev{transform:rotate(180deg)}
+.bk-body{display:none;padding:0 24px 24px;animation:fadeUp 0.18s ease}
+.bk-body.open{display:block}
+.bk-divider{height:1px;margin:0 0 18px;background:linear-gradient(90deg,var(--border2),transparent)}
+.bk-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+.bk-row:last-child{border-bottom:none}
+.bk-sep{border:none!important;height:7px}
+.bk-label{font-size:0.77rem;color:var(--text2);font-weight:500}
+.bk-val{font-family:var(--mono);font-size:0.8rem;color:var(--text);font-weight:700}
+.bk-val.em{color:var(--acc)}
+.bk-val.fin{color:var(--acc3);font-size:0.88rem}
+.bk-row.tot{background:var(--panel2);border-radius:8px;padding:10px 12px;margin-top:4px;border:1px solid var(--border2)!important;box-shadow:0 2px 12px rgba(0,0,0,0.2)}
+
+/* ═══════════════════════════════════════════════
+   ACTIONS
+═══════════════════════════════════════════════ */
+.actions{display:none;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.actions.show{display:flex;animation:fadeUp 0.2s ease}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:9px;font-family:var(--font);font-size:0.76rem;font-weight:700;cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;letter-spacing:0.04em}
+.btn-acc{background:var(--accg);color:#000;box-shadow:0 4px 18px rgba(0,0,0,0.3)}
+.btn-acc:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn-gh{background:var(--panel2);border-color:var(--border);color:var(--text2)}
+.btn-gh:hover{border-color:var(--border2);color:var(--text)}
+.btn-pdf{background:var(--red2);border-color:rgba(255,79,79,0.25);color:var(--red)}
+.btn-pdf:hover{background:rgba(255,79,79,0.18)}
+.btn-wa{background:var(--wa2);border-color:rgba(37,211,102,0.25);color:var(--wa)}
+.btn-wa:hover{background:rgba(37,211,102,0.18)}
+
+/* ═══════════════════════════════════════════════
+   HISTORY
+═══════════════════════════════════════════════ */
+.sec-head{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.hist-grid{display:flex;flex-direction:column;gap:6px}
+.hist-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all 0.16s}
+.hist-item:hover{border-color:var(--border2);background:var(--panel2);transform:translateX(3px);box-shadow:0 4px 20px rgba(0,0,0,0.25)}
+.hi-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);flex-shrink:0;box-shadow:0 0 8px var(--acc);flex-shrink:0}
+.hi-inf{flex:1;min-width:0}
+.hi-name{font-weight:700;font-size:0.86rem}
+.hi-chip{display:inline-block;font-size:0.52rem;font-weight:800;letter-spacing:0.1em;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--acc2);vertical-align:middle;margin-left:5px;text-transform:uppercase}
+.hi-meta{font-family:var(--mono);font-size:0.6rem;color:var(--text2);margin-top:1px}
+.hi-right{text-align:right;flex-shrink:0}
+.hi-price{font-family:var(--mono);font-size:0.83rem;font-weight:700;color:var(--acc)}
+.hi-pkm{font-size:0.53rem;font-weight:400;color:var(--text3);margin-top:1px}
+.hist-empty{text-align:center;padding:32px 20px;color:var(--text3);font-size:0.8rem}
+
+/* ═══════════════════════════════════════════════
+   ADMIN SHEET
+═══════════════════════════════════════════════ */
+.adm-ov{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);display:none;align-items:flex-end;justify-content:center}
+.adm-ov.open{display:flex;animation:bgFd 0.2s ease}
+@keyframes bgFd{from{opacity:0}to{opacity:1}}
+.adm-sheet{width:100%;max-width:960px;background:var(--bg2);border:1.5px solid var(--border2);border-bottom:none;border-radius:var(--r3) var(--r3) 0 0;padding:24px 20px 36px;max-height:90dvh;overflow-y:auto;animation:sheetUp 0.3s var(--ease);box-shadow:0 -20px 60px rgba(0,0,0,0.5)}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+.adm-sheet::-webkit-scrollbar{width:3px}
+.adm-sheet::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.adm-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.adm-ttl{font-size:1rem;font-weight:800;color:var(--acc)}
+.adm-cls{width:32px;height:32px;background:var(--panel2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s}
+.adm-cls:hover{color:var(--red);border-color:rgba(255,79,79,0.3)}
+.adm-sec{font-size:0.62rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--acc2);padding:7px 0 9px;border-top:1px solid var(--border);margin:14px 0 10px}
+.adm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.adm-f{display:flex;flex-direction:column;gap:5px}
+.adm-f label{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2)}
+.adm-f input{height:40px;padding:0 12px;background:var(--bg3);border:1.5px solid var(--border);border-radius:9px;color:var(--text);font-family:var(--mono);font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.adm-f input:focus{border-color:var(--acc)}
+.adm-save{width:100%;height:46px;margin-top:18px;background:var(--accg);border:none;border-radius:12px;color:#000;font-family:var(--font);font-size:0.88rem;font-weight:800;cursor:pointer;letter-spacing:0.06em;transition:all 0.2s;box-shadow:0 4px 18px rgba(0,0,0,0.3)}
+.adm-save:hover{opacity:0.88;transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════════
+   WHATSAPP MODAL
+═══════════════════════════════════════════════ */
+.wa-ov{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:16px}
+.wa-ov.open{display:flex;animation:bgFd 0.2s ease}
+.wa-modal{width:100%;max-width:480px;background:var(--bg2);border:1.5px solid rgba(37,211,102,0.25);border-radius:var(--r3);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.8);animation:cardReveal 0.28s var(--ease)}
+.wa-hdr{background:linear-gradient(135deg,rgba(37,211,102,0.09),rgba(37,211,102,0.02));border-bottom:1px solid rgba(37,211,102,0.12);padding:15px 18px;display:flex;align-items:center;gap:11px}
+.wa-hdr-ic{width:36px;height:36px;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.wa-hdr-info{flex:1}
+.wa-hdr-title{font-size:0.86rem;font-weight:800;color:#25d366;line-height:1.1}
+.wa-hdr-sub{font-size:0.58rem;color:var(--text2);font-family:var(--mono);margin-top:2px;letter-spacing:0.06em}
+.wa-cls{margin-left:auto;width:28px;height:28px;background:var(--panel2);border:1px solid var(--border);border-radius:7px;color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all 0.15s;flex-shrink:0}
+.wa-cls:hover{color:var(--red);border-color:rgba(255,79,79,0.3)}
+.wa-body{padding:18px}
+.wa-fl{font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.wa-fl-opt{color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0;font-size:0.56rem}
+.wa-name-row{display:flex;gap:7px;margin-bottom:14px}
+.wa-name-wrap{position:relative;flex:1}
+.wa-name-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:14px;pointer-events:none;line-height:1}
+#waPartyName{width:100%;height:40px;padding:0 10px 0 34px;background:var(--bg3);border:1.5px solid var(--border);border-radius:9px;color:var(--text);font-family:var(--font);font-size:0.88rem;font-weight:600;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+#waPartyName:focus{border-color:#25d366;box-shadow:0 0 0 3px rgba(37,211,102,0.08)}
+#waPartyName::placeholder{color:var(--text3);font-weight:400;font-size:0.82rem}
+.wa-clear-btn{height:40px;width:34px;flex-shrink:0;background:var(--bg3);border:1.5px solid var(--border);border-radius:9px;color:var(--text3);cursor:pointer;font-size:12px;transition:all 0.15s;display:none;align-items:center;justify-content:center}
+.wa-clear-btn.show{display:flex}
+.wa-clear-btn:hover{color:var(--text);border-color:var(--border2)}
+.wa-prev-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.wa-prev-label{font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text2);display:flex;align-items:center;gap:6px}
+.wa-prev-dot{width:5px;height:5px;border-radius:50%;background:#25d366;animation:pulse 2s infinite}
+.wa-copy-btn{font-size:0.58rem;font-weight:700;color:var(--text3);cursor:pointer;padding:3px 8px;border:1px solid var(--border);border-radius:5px;background:transparent;font-family:var(--font);transition:all 0.15s;text-transform:uppercase;letter-spacing:0.06em}
+.wa-copy-btn:hover{color:var(--text);border-color:var(--border2)}
+.wa-preview{background:var(--bg3);border:1px solid rgba(37,211,102,0.12);border-radius:9px;padding:13px 15px;font-size:0.74rem;line-height:1.85;color:var(--text2);max-height:220px;overflow-y:auto;word-break:break-word;font-family:var(--mono)}
+.wa-preview::-webkit-scrollbar{width:3px}
+.wa-preview::-webkit-scrollbar-thumb{background:rgba(37,211,102,0.2);border-radius:2px}
+.wa-preview b{color:var(--text);font-weight:700}
+.wa-preview i{color:var(--text3);font-style:normal}
+.wa-preview .wdiv{color:var(--text3);letter-spacing:1.5px}
+.wa-preview .wtotal{color:var(--acc);font-weight:700}
+.wa-preview .wprice{color:var(--text);font-weight:700;font-size:0.8rem}
+.wa-footer{padding:13px 18px;border-top:1px solid rgba(255,255,255,0.04);display:flex;gap:7px;background:rgba(0,0,0,0.12)}
+.wa-cancel{height:40px;padding:0 14px;background:var(--panel2);border:1px solid var(--border);border-radius:9px;color:var(--text2);font-family:var(--font);font-size:0.78rem;font-weight:700;cursor:pointer;transition:all 0.15s;flex-shrink:0}
+.wa-cancel:hover{border-color:var(--border2);color:var(--text)}
+.wa-send{flex:1;height:40px;background:linear-gradient(135deg,#25d366,#1da851);border:none;border-radius:9px;color:#fff;font-family:var(--font);font-size:0.84rem;font-weight:800;cursor:pointer;letter-spacing:0.04em;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.2s;box-shadow:0 4px 12px rgba(37,211,102,0.28)}
+.wa-send:hover{opacity:0.9;transform:translateY(-1px)}
+.wa-send:active{transform:none}
+@media(max-width:560px){.wa-modal{border-radius:var(--r2) var(--r2) 0 0}.wa-ov{align-items:flex-end;padding:0}}
+
+/* ═══════════════════════════════════════════════
+   TOAST & INSTALL BAR
+═══════════════════════════════════════════════ */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--bg4);border:1px solid var(--border2);border-radius:10px;padding:9px 20px;font-size:0.78rem;color:var(--text);opacity:0;transition:all 0.3s;pointer-events:none;z-index:999;white-space:nowrap;box-shadow:var(--shadow2);display:flex;align-items:center;gap:8px}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.inst-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,transparent,var(--bg2));border-top:1px solid var(--border);padding:10px 18px;display:none;align-items:center;gap:12px;z-index:150;backdrop-filter:blur(16px)}
+.inst-bar.show{display:flex;animation:sheetUp 0.3s ease}
+.inst-bar p{flex:1;font-size:0.78rem;color:var(--text2)}
+.inst-bar strong{color:var(--acc)}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:560px){
+  .header{padding:14px 16px;gap:12px}
+  .main-card{padding:18px 16px}
+  .res-body{padding:22px 16px}
+  .bk-body{padding:0 16px 20px}
+  .vg-grid{grid-template-columns:1fr 1fr}
+  .actions .btn{flex:1 1 calc(50% - 4px);justify-content:center}
+  .stats-bar{grid-template-columns:1fr}
+  .adm-grid{grid-template-columns:1fr 1fr}
+  .hright .ver-badge{display:none}
+  .vf-pct-row{flex-wrap:wrap}
+}
+@media print{
+  .amb,.type-sw,.vars-tog,.vars-body,.actions,.inst-bar,.adm-ov,.hbtn,.bk-toggle-btn,.toast,.wa-ov{display:none!important}
+  .result-card{display:block!important;box-shadow:none!important}
+  .bk-body{display:block!important}
+  body{background:white;color:black}
+  .price-amt{-webkit-text-fill-color:#b8860b!important}
+}
+</style>
+</head>
+<body>
+
+<div class="amb">
+  <div class="amb-grid"></div>
+  <div class="amb-orb o1"></div>
+  <div class="amb-orb o2"></div>
+</div>
+
+<div class="app">
+  <header class="header">
+    <div class="logo">
+      <svg viewBox="0 0 28 28" fill="none">
+        <path d="M14 2L3 8V20L14 26L25 20V8L14 2Z" stroke="#000" stroke-width="1.5"/>
+        <path d="M14 2V26M3 8L25 20M25 8L3 20" stroke="#000" stroke-width="1.5"/>
+        <circle cx="14" cy="14" r="3" fill="#000"/>
+      </svg>
+    </div>
+    <div class="hinfo">
+      <h1>HYPHEN CABLES PVT. LTD.</h1>
+      <p>Conductor Costing Engine</p>
+    </div>
+    <div class="hright">
+      <div class="ver-badge">v4.1</div>
+      <!-- Theme switcher -->
+      <div class="theme-wrap">
+        <button class="hbtn" onclick="toggleThemePanel()" title="Change Theme" id="themeBtn">🎨</button>
+        <div class="theme-panel" id="themePanel">
+          <div class="theme-opt active" onclick="setTheme('midnight-steel')" data-t="midnight-steel">
+            <div class="theme-swatch" style="background:linear-gradient(135deg,#7eb3ff,#4a8cff)"></div>Midnight Steel
+          </div>
+          <div class="theme-opt" onclick="setTheme('electric-amber')" data-t="electric-amber">
+            <div class="theme-swatch" style="background:linear-gradient(135deg,#ffcc00,#e6a800)"></div>Electric Amber
+          </div>
+          <div class="theme-opt" onclick="setTheme('crimson-dark')" data-t="crimson-dark">
+            <div class="theme-swatch" style="background:linear-gradient(135deg,#ff6b7a,#e84055)"></div>Crimson Dark
+          </div>
+          <div class="theme-opt" onclick="setTheme('clean-light')" data-t="clean-light">
+            <div class="theme-swatch" style="background:linear-gradient(135deg,#3d88ee,#1a65cc)"></div>Clean Light
+          </div>
+        </div>
+      </div>
+      <button class="hbtn" onclick="openAdmin()" title="Admin Panel">⚙</button>
+    </div>
+  </header>
+
+    <div class="type-sw">
+    <button class="type-btn active" onclick="setType('ACSR')" id="tab-acsr">⚡ ACSR</button>
+    <button class="type-btn" onclick="setType('AAAC')" id="tab-aaac">🔩 AAAC</button>
+    <button class="type-btn" onclick="setType('ABC')" id="tab-abc">🔌 AB Cable</button>
+      <button class="type-btn" onclick="setType('PWR')" id="tab-pwr">⚡ Power Cable</button>
+  </div>
+
+  <div class="pwr-sw" id="pwrSw">
+    <span class="pwr-sw-lbl">Core Type</span>
+    <button class="pwr-sub-btn active" onclick="setPwrSub('4 Core')" id="psub-4c">4 Core</button>
+    <button class="pwr-sub-btn" onclick="setPwrSub('3.5 Core')" id="psub-35c">3.5 Core</button>
+  </div>
+
+  <div class="main-card">
+    <div class="flabel">Conductor Size</div>
+    <div class="srch-wrap">
+      <span class="srch-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </span>
+      <input type="text" id="sizeInput" placeholder="Type size — e.g. Dog, Panther, 100 mm²…" autocomplete="off" autocorrect="off" spellcheck="false"/>
+      <button class="srch-clear" id="srchClear" onclick="clearSearch()">✕</button>
+      <div class="dd" id="dd"></div>
+    </div>
+
+    <div class="vars-tog" id="varsTog" onclick="toggleVars()">
+      <div class="vars-tog-l">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Variables &amp; Weights
+      </div>
+      <span class="vars-arrow">▼</span>
+    </div>
+    <div class="vars-body" id="varsBody">
+      <div class="vg">
+        <div class="vg-header">
+          <div class="vg-label gold">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Rate Variables
+          </div>
+          <div class="vg-divider"></div>
+          <button class="vg-reset" onclick="resetRates()">↺ Defaults</button>
+        </div>
+        <div class="vg-grid" id="ratesGrid"></div>
+      </div>
+      <div class="vg">
+        <div class="vg-header">
+          <div class="vg-label cyan">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Weight Variables
+          </div>
+          <div class="vg-divider"></div>
+          <button class="vg-reset" onclick="resetWeights()">↺ Defaults</button>
+        </div>
+        <div class="vg-grid" id="wtGrid">
+          <div style="grid-column:1/-1;font-size:0.7rem;color:var(--text3);padding:4px 0">Select a conductor size to load weight defaults</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-pill"><div class="stat-l">Total Weight</div><div class="stat-v" id="stWt">—</div></div>
+    <div class="stat-pill"><div class="stat-l">Basic Price</div><div class="stat-v gd" id="stBasic">—</div></div>
+    <div class="stat-pill"><div class="stat-l">GST 18%</div><div class="stat-v" id="stGst">—</div></div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="res-topbar">
+      <div class="res-type"><div class="res-dot"></div><span id="resType">ACSR CONDUCTOR</span></div>
+      <div class="res-ts" id="resTs"></div>
+    </div>
+    <div class="res-body">
+      <div class="res-name" id="resName">—</div>
+      <div class="res-specs" id="resSpecs">—</div>
+      <div><span class="price-cur">₹</span><span class="price-amt" id="resPrice">0</span></div>
+      <span class="price-sfx">Per Kilometre · Including GST @ 18%</span>
+      <button class="bk-toggle-btn" id="bkToggle" onclick="toggleBk()">View Breakdown <span class="bk-chev">▼</span></button>
+    </div>
+    <div class="bk-body" id="bkBody">
+      <div class="bk-divider"></div>
+      <div id="bkRows"></div>
+    </div>
+  </div>
+
+  <div class="actions" id="actions">
+    <button class="btn btn-acc" onclick="computeAndShow()">↻ Recalculate</button>
+    <button class="btn btn-gh" onclick="resetAll()">✕ Reset</button>
+    <button class="btn btn-pdf" onclick="exportPDF()">⬇ Export PDF</button>
+    <button class="btn btn-wa" onclick="shareWA()">📲 WhatsApp</button>
+  </div>
+
+  <div class="sec-head">Recent Calculations</div>
+  <div class="hist-grid" id="histGrid"></div>
+</div>
+
+<!-- ADMIN SHEET -->
+<div class="adm-ov" id="admOv" onclick="closeAdmBg(event)">
+  <div class="adm-sheet">
+    <div class="adm-hdr">
+      <div class="adm-ttl">⚙ Admin — Rate Management</div>
+      <button class="adm-cls" onclick="closeAdm()">✕</button>
+    </div>
+    <div id="admContent"></div>
+    <button class="adm-save" onclick="saveAdm()">Save All Rates</button>
+  </div>
+</div>
+
+<!-- WHATSAPP MODAL -->
+<div class="wa-ov" id="waOv" onclick="closeWABg(event)">
+  <div class="wa-modal">
+    <div class="wa-hdr">
+      <div class="wa-hdr-ic">📲</div>
+      <div class="wa-hdr-info">
+        <div class="wa-hdr-title">Share Quotation via WhatsApp</div>
+        <div class="wa-hdr-sub">Professional message · Auto-generated</div>
+      </div>
+      <div class="wa-cls" onclick="closeWA()">✕</div>
+    </div>
+    <div class="wa-body">
+      <div class="wa-fl">
+        Party / Recipient Name
+        <span class="wa-fl-opt">(optional)</span>
+      </div>
+      <div class="wa-name-row">
+        <div class="wa-name-wrap">
+          <span class="wa-name-ic">👤</span>
+          <input type="text" id="waPartyName"
+            placeholder="e.g. M/s Sharma Electricals, Rajesh Ji…"
+            oninput="onWAName()"
+            onkeydown="onWAKey(event)"
+            autocomplete="off" spellcheck="false" maxlength="80"/>
+        </div>
+        <button class="wa-clear-btn" id="waClearBtn" onclick="clearWAName()">✕</button>
+      </div>
+      <div class="wa-prev-hdr">
+        <div class="wa-prev-label"><div class="wa-prev-dot"></div>Message Preview</div>
+        <button class="wa-copy-btn" onclick="copyWA()">Copy</button>
+      </div>
+      <div class="wa-preview" id="waPreview"></div>
+    </div>
+    <div class="wa-footer">
+      <button class="wa-cancel" onclick="closeWA()">Cancel</button>
+      <button class="wa-send" onclick="sendWA()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send on WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALL BAR -->
+<div class="inst-bar" id="instBar">
+  <p>📲 <strong>Install CableCost Pro</strong> — Works fully offline</p>
+  <button class="btn btn-acc" onclick="installPWA()" style="padding:7px 14px;font-size:0.72rem">Install</button>
+  <button class="btn btn-gh" onclick="dismissInst()" style="padding:7px 10px">✕</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ════════════════════════════════════════════
+   FORMULA ENGINE
+════════════════════════════════════════════ */
+const FE={
+  GST:0.18,
+  ACSR(item,r){
+    const alWt=item.alWt,stWt=item.steelWt,totWt=alWt+stWt;
+    const alC=alWt*r.alRate,stC=stWt*r.steelRate,raw=alC+stC;
+    const jw=raw*r.jobWork,basic=raw+jw,gst=basic*this.GST,final=basic+gst;
+    return{alWt,stWt,totWt,alC,stC,raw,jw,basic,gst,final};
+  },
+  AAAC(item,r){
+    const alWt=item.alWt,raw=alWt*r.alAlloyRate;
+    const jw=raw*r.jobWork,basic=raw+jw,gst=basic*this.GST,final=basic+gst;
+    return{alWt,stWt:0,totWt:alWt,alC:raw,stC:0,raw,jw,basic,gst,final};
+  },
+  ABC(item,r){
+    const alWt=item.alWt,alloyWt=item.alloyWt,xlpeWt=item.xlpeWt;
+    const totWt=alWt+alloyWt+xlpeWt;
+    const alC=alWt*r.alRate,alloyC=alloyWt*r.alAlloyRate,xlpeC=xlpeWt*r.xlpeRate;
+    const raw=alC+alloyC+xlpeC;
+    const jw=raw*r.jobWork,basic=raw+jw,gst=basic*this.GST,final=basic+gst;
+    return{alWt,alloyWt,xlpeWt,totWt,alC,alloyC,xlpeC,raw,jw,basic,gst,final};
+  },
+  PWR(item,r){
+    const alWt=item.alWt,xlpeWt=item.xlpeWt,innerWt=item.innerWt,armdWt=item.armdWt,outerWt=item.outerWt;
+    const totWt=alWt+xlpeWt+innerWt+armdWt+outerWt;
+    const alC=alWt*r.alRate,xlpeC=xlpeWt*r.xlpeRate,innerC=innerWt*r.innerRate,armdC=armdWt*r.armdRate,outerC=outerWt*r.outerRate;
+    const raw=alC+xlpeC+innerC+armdC+outerC;
+    const jw=raw*r.jobWork,basic=raw+jw,gst=basic*this.GST,final=basic+gst;
+    return{alWt,xlpeWt,innerWt,armdWt,outerWt,totWt,alC,xlpeC,innerC,armdC,outerC,raw,jw,basic,gst,final};
+  },
+  run(type,item,rates){return this[type](item,rates);}
+};
+
+/* ════════════════════════════════════════════
+   DATA
+════════════════════════════════════════════ */
+const DB={
+  ACSR:{
+    label:'ACSR Conductor',
+    def:{alRate:360,steelRate:70,jobWork:0.15},
+    sizes:[
+      {name:'Weasel',sqmm:30,alSize:'6/2.59',steelSize:'1/2.59',alWt:87,steelWt:41},
+      {name:'Rabbit',sqmm:50,alSize:'6/3.35',steelSize:'1/3.35',alWt:147,steelWt:68},
+      {name:'Racoon',sqmm:80,alSize:'6/4.09',steelSize:'1/4.09',alWt:217,steelWt:102},
+      {name:'Dog',sqmm:100,alSize:'6/4.72',steelSize:'7/1.57',alWt:288,steelWt:106},
+      {name:'Wolf',sqmm:150,alSize:'30/2.59',steelSize:'7/2.59',alWt:436,steelWt:290},
+      {name:'Panther',sqmm:200,alSize:'30/3.00',steelSize:'7/3.00',alWt:584,steelWt:390},
+      {name:'Zebra',sqmm:420,alSize:'30/3.18',steelSize:'7/3.18',alWt:1185,steelWt:435},
+    ],
+    rf:[
+      {k:'alRate',lbl:'Al. Rate (₹/kg)',px:'₹',step:'1'},
+      {k:'steelRate',lbl:'Steel Rate (₹/kg)',px:'₹',step:'1'},
+      {k:'jobWork',lbl:'Job Work (fraction)',px:'',step:'0.01'},
+    ],
+  },
+  AAAC:{
+    label:'AAAC Conductor',
+    def:{alAlloyRate:400,jobWork:0.15},
+    sizes:[
+      {name:'Weasel',sqmm:34,alSize:'7/2.50',alWt:94},
+      {name:'Rabbit',sqmm:55,alSize:'7/3.15',alWt:149.2},
+      {name:'Racoon',sqmm:80,alSize:'7/3.81',alWt:218.26},
+      {name:'Dog',sqmm:100,alSize:'7/4.26',alWt:272.86},
+      {name:'Dog - UP',sqmm:125,alSize:'19/2.89',alWt:342.51},
+      {name:'Coyote',sqmm:148,alSize:'19/3.15',alWt:406.91},
+      {name:'Wolf',sqmm:173,alSize:'19/3.40',alWt:474.02},
+      {name:'Wolf - UP',sqmm:200,alSize:'19/3.66',alWt:549.4},
+      {name:'Panther',sqmm:232,alSize:'19/3.94',alWt:636.63},
+    ],
+    rf:[
+      {k:'alAlloyRate',lbl:'Al. Alloy Rate (₹/kg)',px:'₹',step:'1'},
+      {k:'jobWork',lbl:'Job Work (fraction)',px:'',step:'0.01'},
+    ],
+  },
+  ABC:{
+    label:'ABC — Aerial Bunched Cable',
+    def:{alRate:360,alAlloyRate:400,xlpeRate:180,jobWork:0.15},
+    sizes:[
+      {name:'3CX16+25',    sqmm:'3x16+25',     alSize:'7/1.70+7/2.14',            alWt:129,  alloyWt:67,  xlpeWt:66 },
+      {name:'3CX25+25',    sqmm:'3x25+25',     alSize:'7/2.14+7/2.14',            alWt:201,  alloyWt:67,  xlpeWt:90 },
+      {name:'3CX35+16+25', sqmm:'3x35+16+25',  alSize:'7/2.52+7/1.70+7/2.14',    alWt:328,  alloyWt:67,  xlpeWt:130},
+      {name:'3CX50+16+35', sqmm:'3x50+16+35',  alSize:'7/3.00+7/1.70+7/2.52',    alWt:448,  alloyWt:95,  xlpeWt:175},
+      {name:'3CX70+16+50', sqmm:'3x70+16+50',  alSize:'19/2.15+7/1.70+7/3.00',   alWt:613,  alloyWt:135, xlpeWt:205},
+      {name:'3CX95+16+70', sqmm:'3x95+16+70',  alSize:'19/2.52+7/1.70+7/3.57',   alWt:814,  alloyWt:190, xlpeWt:235},
+      {name:'3CX120+16+70',sqmm:'3x120+16+70', alSize:'19/2.82+7/1.70+7/3.57',   alWt:1018, alloyWt:190, xlpeWt:265},
+      {name:'3CX120+16+95',sqmm:'3x120+16+95', alSize:'19/2.82+7/1.70+7/4.15',   alWt:1018, alloyWt:257, xlpeWt:265},
+      {name:'3CX150+16+95',sqmm:'3x150+16+95', alSize:'19/3.17+7/1.70+7/4.15',   alWt:1261, alloyWt:257, xlpeWt:295},
+      {name:'3CX150+16+120',sqmm:'3x150+16+120',alSize:'19/3.17+7/1.70+19/2.82', alWt:1261, alloyWt:330, xlpeWt:295},
+    ],
+    rf:[
+      {k:'alRate',     lbl:'Al. Rate (₹/kg)',         px:'₹',step:'1'},
+      {k:'alAlloyRate',lbl:'Alloy Rate (₹/kg)',        px:'₹',step:'1'},
+      {k:'xlpeRate',   lbl:'XLPE Rate (₹/kg)',         px:'₹',step:'1'},
+      {k:'jobWork',    lbl:'Job Work (fraction)',           px:'',    step:'0.01'},
+    ],
+  },
+  PWR:{
+    label:'Power Cable — XLPE Armoured',
+    def:{alRate:375,xlpeRate:160,innerRate:45,armdRate:75,outerRate:60,jobWork:0.15},
+    sizes:{
+      '4 Core':[
+        {name:'4CX16', sqmm:'4x16', alSize:'7/1.72', dia:20, alWt:172, xlpeWt:68, innerWt:70, armdWt:264,outerWt:160},
+        {name:'4CX25', sqmm:'4x25', alSize:'7/2.16', dia:23, alWt:270, xlpeWt:80, innerWt:80, armdWt:308,outerWt:200},
+        {name:'4CX35', sqmm:'4x35', alSize:'7/2.54', dia:26, alWt:380, xlpeWt:100,innerWt:90, armdWt:352,outerWt:250},
+        {name:'4CX50', sqmm:'4x50', alSize:'7/3.05', dia:29, alWt:540, xlpeWt:140,innerWt:120,armdWt:396,outerWt:300},
+        {name:'4CX70', sqmm:'4x70', alSize:'19/2.18',dia:33, alWt:760, xlpeWt:180,innerWt:140,armdWt:440,outerWt:350},
+        {name:'4CX95', sqmm:'4x95', alSize:'19/2.54',dia:34, alWt:1020,xlpeWt:240,innerWt:165,armdWt:484,outerWt:400},
+        {name:'4CX120',sqmm:'4x120',alSize:'19/2.85',dia:41, alWt:1296,xlpeWt:280,innerWt:180,armdWt:528,outerWt:450},
+        {name:'4CX150',sqmm:'4x150',alSize:'19/3.18',dia:47, alWt:1624,xlpeWt:320,innerWt:200,armdWt:572,outerWt:500},
+        {name:'4CX185',sqmm:'4x185',alSize:'37/2.54',dia:52, alWt:2000,xlpeWt:360,innerWt:220,armdWt:616,outerWt:600},
+        {name:'4CX240',sqmm:'4x240',alSize:'37/2.85',dia:58, alWt:2594,xlpeWt:440,innerWt:250,armdWt:748,outerWt:750},
+        {name:'4CX300',sqmm:'4x300',alSize:'37/3.21',dia:66, alWt:3243,xlpeWt:600,innerWt:275,armdWt:836,outerWt:850},
+        {name:'4CX400',sqmm:'4x400',alSize:'61/2.89',dia:75, alWt:4324,xlpeWt:720,innerWt:300,armdWt:968,outerWt:950},
+      ],
+      '3.5 Core':[
+        {name:'3.5CX25', sqmm:'3.5x25', alSize:'25-7/2.16+16-7/1.72',  dia:22,alWt:236, xlpeWt:75, innerWt:75, armdWt:286,outerWt:200},
+        {name:'3.5CX35', sqmm:'3.5x35', alSize:'35-7/2.54+16-7/1.72',  dia:25,alWt:331, xlpeWt:90, innerWt:85, armdWt:308,outerWt:250},
+        {name:'3.5CX50', sqmm:'3.5x50', alSize:'50-7/3.05+25-7/2.16',  dia:28,alWt:473, xlpeWt:120,innerWt:110,armdWt:352,outerWt:300},
+        {name:'3.5CX70', sqmm:'3.5x70', alSize:'70-19/2.18+35-7/2.54', dia:32,alWt:662, xlpeWt:160,innerWt:130,armdWt:396,outerWt:350},
+        {name:'3.5CX95', sqmm:'3.5x95', alSize:'95-19/2.54+50-7/3.05', dia:35,alWt:898, xlpeWt:210,innerWt:150,armdWt:462,outerWt:400},
+        {name:'3.5CX120',sqmm:'3.5x120',alSize:'120-19/2.85+70-19/2.18',dia:39,alWt:1135,xlpeWt:250,innerWt:180,armdWt:528,outerWt:450},
+        {name:'3.5CX150',sqmm:'3.5x150',alSize:'150-19/3.18+70-19/2.18',dia:44,alWt:1419,xlpeWt:280,innerWt:200,armdWt:572,outerWt:500},
+        {name:'3.5CX185',sqmm:'3.5x185',alSize:'185-37/2.54+95-19/2.54',dia:49,alWt:1750,xlpeWt:320,innerWt:220,armdWt:616,outerWt:600},
+        {name:'3.5CX240',sqmm:'3.5x240',alSize:'240-37/2.85+120-19/2.85',dia:54,alWt:2270,xlpeWt:400,innerWt:250,armdWt:748,outerWt:750},
+        {name:'3.5CX300',sqmm:'3.5x300',alSize:'300-37/3.22+150-19/3.18',dia:64,alWt:2838,xlpeWt:550,innerWt:275,armdWt:836,outerWt:850},
+        {name:'3.5CX400',sqmm:'3.5x400',alSize:'400-61/2.89+185-37/2.54',dia:72,alWt:3784,xlpeWt:660,innerWt:300,armdWt:968,outerWt:950},
+      ],
+    },
+    get sizes_flat(){return[...this.sizes['4 Core'],...this.sizes['3.5 Core']];},
+    rf:[
+      {k:'alRate',   lbl:'Al. Rate (₹/kg)',     px:'₹',step:'1'},
+      {k:'xlpeRate', lbl:'XLPE Rate (₹/kg)',    px:'₹',step:'1'},
+      {k:'innerRate',lbl:'Inner Rate (₹/kg)',   px:'₹',step:'1'},
+      {k:'armdRate', lbl:'Armour Rate (₹/kg)',  px:'₹',step:'1'},
+      {k:'outerRate',lbl:'Outer Rate (₹/kg)',   px:'₹',step:'1'},
+      {k:'jobWork',  lbl:'Job Work (fraction)',      px:'',     step:'0.01'},
+    ],
+  },
+
+};
+
+/* ════════════════════════════════════════════
+   STATE
+════════════════════════════════════════════ */
+const S={
+  type:'ACSR',selected:null,
+  rates:{ACSR:{...DB.ACSR.def},AAAC:{...DB.AAAC.def},ABC:{...DB.ABC.def},PWR:{...DB.PWR.def}},
+  history:[],ddHi:-1,last:null,
+  wt:{alWt:null,steelWt:null,alloyWt:null,xlpeWt:null,innerWt:null,armdWt:null,outerWt:null},
+  pwrSub:'4 Core',
+  theme:'dark-gold',
+};
+let waLastParty='';
+
+/* ════════════════════════════════════════════
+   PERSISTENCE
+════════════════════════════════════════════ */
+function save(){
+  try{
+    localStorage.setItem('hc_r',JSON.stringify(S.rates));
+    localStorage.setItem('hc_h',JSON.stringify(S.history.slice(0,20)));
+    localStorage.setItem('hc_t',S.type);
+    localStorage.setItem('hc_theme',S.theme);
+    localStorage.setItem('hc_ps',S.pwrSub);
+  }catch(e){}
+}
+function load(){
+  try{
+    const r=localStorage.getItem('hc_r');if(r){const pr=JSON.parse(r);S.rates={ACSR:{...DB.ACSR.def,...(pr.ACSR||{})},AAAC:{...DB.AAAC.def,...(pr.AAAC||{})},ABC:{...DB.ABC.def,...(pr.ABC||{})},PWR:{...DB.PWR.def,...(pr.PWR||{})}};}
+    const h=localStorage.getItem('hc_h');if(h)S.history=JSON.parse(h);
+    const t=localStorage.getItem('hc_t');if(t)S.type=t;
+    const ps=localStorage.getItem('hc_ps');if(ps)S.pwrSub=ps;
+    const th=localStorage.getItem('hc_theme');if(th)S.theme=th;
+  }catch(e){}
+}
+
+/* ════════════════════════════════════════════
+   FORMAT
+════════════════════════════════════════════ */
+const fmtN=n=>Math.round(n).toLocaleString('en-IN');
+const fmtD=n=>parseFloat(n).toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtW=n=>parseFloat(n).toLocaleString('en-IN',{maximumFractionDigits:2})+' kg/km';
+const fmtRs=n=>'₹'+fmtN(n);
+const tsNow=()=>new Date().toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+
+/* ════════════════════════════════════════════
+   TOAST
+════════════════════════════════════════════ */
+let tt;
+function toast(msg,ic='✓'){
+  const e=document.getElementById('toast');
+  e.innerHTML=`<span>${ic}</span><span>${msg}</span>`;
+  e.classList.add('show');clearTimeout(tt);
+  tt=setTimeout(()=>e.classList.remove('show'),2600);
+}
+
+/* ════════════════════════════════════════════
+   THEME SYSTEM
+════════════════════════════════════════════ */
+function setTheme(t){
+  S.theme=t;
+  document.documentElement.setAttribute('data-theme',t);
+  document.querySelectorAll('.theme-opt').forEach(el=>{
+    el.classList.toggle('active',el.dataset.t===t);
+  });
+  closeThemePanel();save();
+}
+function toggleThemePanel(){
+  document.getElementById('themePanel').classList.toggle('open');
+}
+function closeThemePanel(){
+  document.getElementById('themePanel').classList.remove('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.theme-wrap'))closeThemePanel();
+});
+
+/* ════════════════════════════════════════════
+   TYPE SWITCH
+════════════════════════════════════════════ */
+function setType(t){
+  S.type=t;S.selected=null;
+  ['ACSR','AAAC','ABC','PWR'].forEach(id=>{
+    const el=document.getElementById('tab-'+id.toLowerCase());
+    if(el)el.classList.toggle('active',id===t);
+  });
+  const inp=document.getElementById('sizeInput');
+  const ph={ACSR:'e.g. Dog, Panther, 100 mm²…',AAAC:'e.g. Coyote, Wolf, 148 mm²…',ABC:'e.g. 3CX25+25, 3CX95+16+70…',PWR:'e.g. 4CX95, 3.5CX185, 4CX240…'};
+  inp.placeholder='Type size — '+ph[t];
+  inp.value='';document.getElementById('srchClear').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('visible');
+  document.getElementById('actions').classList.remove('show');
+  document.getElementById('statsBar').classList.remove('show');
+  S.wt={alWt:null,steelWt:null,alloyWt:null,xlpeWt:null,innerWt:null,armdWt:null,outerWt:null};
+  const _pS=document.getElementById('pwrSw');if(_pS)_pS.classList.toggle('show',t==='PWR');
+  if(t==='PWR')renderPwrSubTabs();
+  wtTotalPct=0;
+  const badge=document.getElementById('wtAdjBadge');
+  if(badge)badge.classList.remove('show');
+  renderRates();renderWeightPanel();save();
+}
+
+/* ════════════════════════════════════════════
+   VARIABLES PANEL
+════════════════════════════════════════════ */
+function toggleVars(){
+  document.getElementById('varsTog').classList.toggle('open');
+  document.getElementById('varsBody').classList.toggle('open');
+}
+
+function renderRates(){
+  const g=document.getElementById('ratesGrid');
+  g.innerHTML=DB[S.type].rf.map(f=>{
+    const cur=S.rates[S.type][f.k];
+    const mod=cur!==DB[S.type].def[f.k];
+    return `<div class="vf">
+      <div class="vf-label">
+        <span class="vf-name">${f.lbl}</span>
+        <span class="vf-default">def: ${f.px}${DB[S.type].def[f.k]}</span>
+      </div>
+      <div class="vf-iw">
+        <span class="vf-px">${f.px||'%'}</span>
+        <input type="number" id="r_${f.k}" value="${cur}" step="${f.step}" min="0"
+          class="${mod?'modified':''}" oninput="onRate('${f.k}',this.value)"/>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function onRate(k,v){
+  const val=parseFloat(v)||0;
+  S.rates[S.type][k]=val;
+  const el=document.getElementById('r_'+k);
+  if(el)el.classList.toggle('modified',val!==DB[S.type].def[k]);
+  if(S.selected)computeAndShow();
+  save();
+}
+
+function resetRates(){
+  S.rates[S.type]={...DB[S.type].def};
+  renderRates();if(S.selected)computeAndShow();save();
+  toast('Rates reset to defaults','↺');
+}
+
+/* ─── WEIGHT PANEL — individual per-field % reduction ─── */
+function renderWeightPanel(){
+  const item=S.selected;
+  const g=document.getElementById('wtGrid');
+  if(!item){
+    g.innerHTML='<div style="grid-column:1/-1;font-size:0.7rem;color:var(--text3);padding:4px 0">Select a conductor size to load weight defaults</div>';
+    return;
+  }
+  let fields;
+  if(S.type==='ACSR')      fields=[{k:'alWt',lbl:'Al. Weight',def:item.alWt},{k:'steelWt',lbl:'Steel Weight',def:item.steelWt}];
+  else if(S.type==='AAAC') fields=[{k:'alWt',lbl:'Al. Alloy Weight',def:item.alWt}];
+  else if(S.type==='ABC')  fields=[{k:'alWt',lbl:'Al. Weight (Phase)',def:item.alWt},{k:'alloyWt',lbl:'Alloy Weight (Neutral)',def:item.alloyWt},{k:'xlpeWt',lbl:'XLPE Weight',def:item.xlpeWt}];
+  else                     fields=[{k:'alWt',lbl:'Aluminium',def:item.alWt},{k:'xlpeWt',lbl:'XLPE',def:item.xlpeWt},{k:'innerWt',lbl:'Inner Sheath',def:item.innerWt},{k:'armdWt',lbl:'Armour',def:item.armdWt},{k:'outerWt',lbl:'Outer Sheath',def:item.outerWt}];
+  g.innerHTML=fields.map(f=>{
+    const cur=S.wt[f.k]!==null?S.wt[f.k]:f.def;
+    const mod=S.wt[f.k]!==null;
+    const pctDiff=mod?parseFloat((100-(cur/f.def*100)).toFixed(1)):0;
+    const badge=mod?` <span class="wf-pct-badge">−${pctDiff}%</span>`:'';
+    return `<div class="vf">
+      <div class="vf-label">
+        <span class="vf-name">${f.lbl}${badge}</span>
+        <span class="vf-default">std: ${f.def} kg/km</span>
+      </div>
+      <div class="vf-iw">
+        <span class="vf-px cyan">kg</span>
+        <input type="number" id="wt_${f.k}" value="${parseFloat(cur).toFixed(2)}"
+          step="0.01" min="0" class="${mod?'modified':''}"
+          oninput="onWt('${f.k}',this.value,${f.def})"/>
+      </div>
+      <div class="vf-pct-row">
+        <button class="vf-pct-btn" onclick="reduceWt('${f.k}',${f.def},1)">−1%</button>
+        <button class="vf-pct-btn" onclick="reduceWt('${f.k}',${f.def},2)">−2%</button>
+        <button class="vf-pct-btn" onclick="reduceWt('${f.k}',${f.def},5)">−5%</button>
+        <button class="vf-pct-btn" onclick="reduceWt('${f.k}',${f.def},10)">−10%</button>
+        ${mod?`<button class="vf-pct-rst" onclick="resetOneWt('${f.k}')" title="Reset to standard">↺</button>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function onWt(k,v,def){
+  const p=parseFloat(v);
+  S.wt[k]=(isNaN(p)||Math.abs(p-def)<0.001)?null:p;
+  const el=document.getElementById('wt_'+k);
+  if(el)el.classList.toggle('modified',S.wt[k]!==null);
+  if(S.selected)computeAndShow();
+}
+
+// Reduce a single weight field independently by a specific %
+function reduceWt(k,def,pct){
+  if(!S.selected){toast('Select a size first','⚠');return;}
+  const base=S.wt[k]!==null?S.wt[k]:def;
+  S.wt[k]=Math.max(0,parseFloat((base*(1-pct/100)).toFixed(3)));
+  renderWeightPanel();
+  if(S.selected)computeAndShow();
+  const el=document.getElementById('wt_'+k);
+  if(el){el.style.transition='background 0.3s';el.style.background='rgba(255,79,79,0.12)';setTimeout(()=>{el.style.background='';},400);}
+}
+
+// Reset a single weight field independently to standard
+function resetOneWt(k){
+  S.wt[k]=null;
+  renderWeightPanel();
+  if(S.selected)computeAndShow();
+}
+
+let wtTotalPct=0; // kept for reset compatibility
+
+function resetWeights(){
+  S.wt={alWt:null,steelWt:null,alloyWt:null,xlpeWt:null,innerWt:null,armdWt:null,outerWt:null};
+  wtTotalPct=0;
+  renderWeightPanel();if(S.selected)computeAndShow();
+  toast('All weights reset to standard','↺');
+}
+
+/* ════════════════════════════════════════════
+   SEARCH & DROPDOWN
+════════════════════════════════════════════ */
+function fuzzy(str,q){
+  str=str.toLowerCase();q=q.toLowerCase().trim();
+  if(!q)return true;
+  if(str.includes(q))return true;
+  let i=0;
+  for(const c of q){i=str.indexOf(c,i);if(i===-1)return false;i++;}
+  return true;
+}
+function hl(s,q){
+  if(!q)return s;
+  const qi=s.toLowerCase().indexOf(q.toLowerCase().trim());
+  if(qi===-1)return s;
+  return s.slice(0,qi)+'<mark>'+s.slice(qi,qi+q.length)+'</mark>'+s.slice(qi+q.length);
+}
+function filtered(q){
+  const sizes=S.type==='PWR'?DB.PWR.sizes[S.pwrSub]:DB[S.type].sizes;
+  return sizes.filter(s=>
+    fuzzy(s.name,q)||fuzzy(String(s.sqmm),q)||fuzzy(s.alSize||'',q)
+  );
+}
+
+const inp=document.getElementById('sizeInput');
+const dd=document.getElementById('dd');
+
+function renderDD(items,q){
+  if(!items.length){dd.innerHTML=`<div class="dd-empty">No matching sizes found</div>`;}
+  else{
+    const rec=S.history.slice(0,3).map(h=>h.name);
+    const rItems=!q.trim()?items.filter(s=>rec.includes(s.name)):[];
+    const rest=items.filter(s=>q.trim()||!rec.includes(s.name));
+    let h='';
+    if(rItems.length){h+=`<div class="dd-sh">Recently Used</div>`;h+=rItems.map(s=>ddItem(s,q)).join('');}
+    if(rItems.length&&rest.length)h+=`<div class="dd-sh">All Sizes</div>`;
+    h+=rest.map(s=>ddItem(s,q)).join('');
+    dd.innerHTML=h;
+  }
+  S.ddHi=-1;dd.classList.add('open');
+}
+function ddItem(s,q){
+  let meta,badge;
+  if(S.type==='ACSR'){meta=`${s.alSize} / ${s.steelSize} · ${s.alWt} kg/km`;badge=`${s.sqmm} mm²`;}
+  else if(S.type==='AAAC'){meta=`${s.alSize} · ${s.alWt} kg/km`;badge=`${s.sqmm} mm²`;}
+  else if(S.type==='ABC'){meta=`Al:${s.alWt} Alloy:${s.alloyWt} XLPE:${s.xlpeWt} kg/km`;badge=s.sqmm;}
+  else{meta=`Al:${s.alWt} XLPE:${s.xlpeWt} Armd:${s.armdWt} Ø${s.dia}mm`;badge=s.sqmm;}
+  return `<div class="dd-item" onmousedown="selSize('${s.name}')"><div class="dd-il"><div class="dd-name">${hl(s.name,q)}</div><div class="dd-meta">${meta}</div></div><div class="dd-badge">${badge}</div></div>`;
+}
+
+inp.addEventListener('input',function(){
+  document.getElementById('srchClear').classList.toggle('show',!!this.value);
+  renderDD(filtered(this.value),this.value);
+});
+inp.addEventListener('focus',function(){renderDD(filtered(this.value),this.value);});
+inp.addEventListener('blur',function(){setTimeout(()=>dd.classList.remove('open'),200);});
+inp.addEventListener('keydown',function(e){
+  const items=dd.querySelectorAll('.dd-item');
+  if(e.key==='ArrowDown'){e.preventDefault();S.ddHi=Math.min(S.ddHi+1,items.length-1);hiDD(items);}
+  else if(e.key==='ArrowUp'){e.preventDefault();S.ddHi=Math.max(S.ddHi-1,0);hiDD(items);}
+  else if(e.key==='Enter'){
+    if(S.ddHi>=0&&items[S.ddHi])items[S.ddHi].dispatchEvent(new MouseEvent('mousedown'));
+    else{const f=filtered(inp.value);if(f.length)selSize(f[0].name);}
+  }
+  else if(e.key==='Escape')dd.classList.remove('open');
+});
+function hiDD(items){
+  items.forEach((el,i)=>el.classList.toggle('hi',i===S.ddHi));
+  if(S.ddHi>=0&&items[S.ddHi])items[S.ddHi].scrollIntoView({block:'nearest'});
+}
+function clearSearch(){inp.value='';document.getElementById('srchClear').classList.remove('show');inp.focus();renderDD(filtered(''),'');}
+function selSize(name){
+  const _szA=S.type==='PWR'?DB.PWR.sizes[S.pwrSub]:DB[S.type].sizes;
+  const item=_szA.find(s=>s.name===name);if(!item)return;
+  S.selected=item;
+  inp.value=(S.type==='ABC'||S.type==='PWR')?`${item.name} — ${item.sqmm}`:`${item.name} — ${item.sqmm} mm²`;
+  document.getElementById('srchClear').classList.add('show');
+  dd.classList.remove('open');
+  S.wt={alWt:null,steelWt:null,alloyWt:null,xlpeWt:null,innerWt:null,armdWt:null,outerWt:null};
+  wtTotalPct=0;
+  const badge=document.getElementById('wtAdjBadge');
+  if(badge)badge.classList.remove('show');
+  renderWeightPanel();computeAndShow();
+}
+
+/* ════════════════════════════════════════════
+   CALCULATION ENGINE
+════════════════════════════════════════════ */
+let praf;
+function animPrice(target){
+  const el=document.getElementById('resPrice');
+  const dur=550,start=performance.now();
+  const from=parseInt(el.textContent.replace(/[^0-9]/g,''))||0;
+  cancelAnimationFrame(praf);
+  function tick(now){
+    const p=Math.min((now-start)/dur,1),ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(from+(target-from)*ease).toLocaleString('en-IN');
+    if(p<1)praf=requestAnimationFrame(tick);
+  }
+  praf=requestAnimationFrame(tick);
+}
+
+function computeAndShow(){
+  if(!S.selected){toast('Select a conductor size first','⚠');return;}
+  const item=S.selected,rates=S.rates[S.type];
+  const eff={...item,
+    alWt:   S.wt.alWt!==null    ?S.wt.alWt    :item.alWt,
+    steelWt:S.wt.steelWt!==null ?S.wt.steelWt :(item.steelWt||0),
+    alloyWt:S.wt.alloyWt!==null ?S.wt.alloyWt :(item.alloyWt||0),
+    xlpeWt: S.wt.xlpeWt!==null  ?S.wt.xlpeWt  :(item.xlpeWt||0),
+    innerWt:S.wt.innerWt!==null ?S.wt.innerWt :(item.innerWt||0),
+    armdWt: S.wt.armdWt!==null  ?S.wt.armdWt  :(item.armdWt||0),
+    outerWt:S.wt.outerWt!==null ?S.wt.outerWt :(item.outerWt||0),
+  };
+  const c=FE.run(S.type,eff,rates);
+  S.last={item:eff,rates,c,type:S.type};
+
+  document.getElementById('resType').textContent=DB[S.type].label.toUpperCase();
+  document.getElementById('resTs').textContent=tsNow();
+  document.getElementById('resName').textContent=item.name;
+  if(S.type==='ABC'){
+    document.getElementById('resSpecs').textContent=`${item.sqmm}  ·  Al:${eff.alWt} Alloy:${eff.alloyWt} XLPE:${eff.xlpeWt} kg/km`;
+  } else if(S.type==='PWR'){
+    document.getElementById('resSpecs').textContent=`${item.sqmm}  ·  Ø${item.dia}mm  ·  ${item.alSize}`;
+  } else {
+    document.getElementById('resSpecs').textContent=`${item.sqmm} mm²  ·  ${item.alSize}${S.type==='ACSR'?' / '+item.steelSize:''}`;
+  }
+  animPrice(c.final);
+
+  document.getElementById('stWt').textContent=fmtW(c.totWt);
+  document.getElementById('stBasic').textContent=fmtRs(c.basic);
+  document.getElementById('stGst').textContent=fmtRs(c.gst);
+
+  const jw=Math.round(rates.jobWork*100);
+  let rows;
+  if(S.type==='ACSR') rows=[
+    {l:'Aluminium Weight',v:fmtW(eff.alWt)},
+    {l:'Steel Weight',v:fmtW(eff.steelWt||0)},
+    {l:'Total Weight',v:fmtW(c.totWt)},
+    {sep:1},
+    {l:'Aluminium Cost',v:'₹'+fmtD(c.alC)},
+    {l:'Steel Cost',v:'₹'+fmtD(c.stC)},
+    {l:'Total Raw Cost',v:'₹'+fmtD(c.raw)},
+    {l:`Job Work (${jw}%)`,v:'₹'+fmtD(c.jw)},
+    {l:'Basic Price / km',v:'₹'+fmtD(c.basic),cls:'em'},
+    {sep:1},
+    {l:'GST @ 18%',v:'₹'+fmtD(c.gst)},
+    {l:'Final Price / km',v:fmtRs(c.final),cls:'fin',tot:1},
+  ];
+  else if(S.type==='AAAC') rows=[
+    {l:'Al. Alloy Weight',v:fmtW(eff.alWt)},
+    {sep:1},
+    {l:'Total Raw Cost',v:'₹'+fmtD(c.raw)},
+    {l:`Job Work (${jw}%)`,v:'₹'+fmtD(c.jw)},
+    {l:'Basic Price / km',v:'₹'+fmtD(c.basic),cls:'em'},
+    {sep:1},
+    {l:'GST @ 18%',v:'₹'+fmtD(c.gst)},
+    {l:'Final Price / km',v:fmtRs(c.final),cls:'fin',tot:1},
+  ];
+  else if(S.type==='ABC') rows=[
+    {l:'Al. Weight (Phase)',v:fmtW(eff.alWt)},
+    {l:'Alloy Weight (Neutral)',v:fmtW(eff.alloyWt||0)},
+    {l:'XLPE Weight',v:fmtW(eff.xlpeWt||0)},
+    {l:'Total Weight',v:fmtW(c.totWt)},
+    {sep:1},
+    {l:'Aluminium Cost',v:'₹'+fmtD(c.alC)},
+    {l:'Alloy Cost',v:'₹'+fmtD(c.alloyC)},
+    {l:'XLPE Cost',v:'₹'+fmtD(c.xlpeC)},
+    {l:'Total Raw Cost',v:'₹'+fmtD(c.raw)},
+    {l:`Job Work (${jw}%)`,v:'₹'+fmtD(c.jw)},
+    {l:'Basic Price / km',v:'₹'+fmtD(c.basic),cls:'em'},
+    {sep:1},
+    {l:'GST @ 18%',v:'₹'+fmtD(c.gst)},
+    {l:'Final Price / km',v:fmtRs(c.final),cls:'fin',tot:1},
+  ];
+  else rows=[
+    {l:'Aluminium Weight',v:fmtW(eff.alWt)},
+    {l:'XLPE Weight',v:fmtW(eff.xlpeWt||0)},
+    {l:'Inner Sheath Weight',v:fmtW(eff.innerWt||0)},
+    {l:'Armour Weight',v:fmtW(eff.armdWt||0)},
+    {l:'Outer Sheath Weight',v:fmtW(eff.outerWt||0)},
+    {l:'Total Weight',v:fmtW(c.totWt)},
+    {sep:1},
+    {l:'Aluminium Cost',v:'₹'+fmtD(c.alC)},
+    {l:'XLPE Cost',v:'₹'+fmtD(c.xlpeC)},
+    {l:'Inner Sheath Cost',v:'₹'+fmtD(c.innerC)},
+    {l:'Armour Cost',v:'₹'+fmtD(c.armdC)},
+    {l:'Outer Sheath Cost',v:'₹'+fmtD(c.outerC)},
+    {l:'Total Raw Cost',v:'₹'+fmtD(c.raw)},
+    {l:`Job Work (${jw}%)`,v:'₹'+fmtD(c.jw)},
+    {l:'Basic Price / km',v:'₹'+fmtD(c.basic),cls:'em'},
+    {sep:1},
+    {l:'GST @ 18%',v:'₹'+fmtD(c.gst)},
+    {l:'Final Price / km',v:fmtRs(c.final),cls:'fin',tot:1},
+  ];
+  document.getElementById('bkRows').innerHTML=rows.map(r=>
+    r.sep?`<div class="bk-row bk-sep"></div>`:
+    `<div class="bk-row${r.tot?' tot':''}"><span class="bk-label">${r.l}</span><span class="bk-val${r.cls?' '+r.cls:''}">${r.v}</span></div>`
+  ).join('');
+
+  const rc=document.getElementById('resultCard');
+  rc.classList.remove('visible');void rc.offsetWidth;rc.classList.add('visible');
+  document.getElementById('actions').classList.add('show');
+  document.getElementById('statsBar').classList.add('show');
+  addHist({name:item.name,sqmm:item.sqmm,type:S.type,price:c.final});
+}
+
+/* ════════════════════════════════════════════
+   HISTORY
+════════════════════════════════════════════ */
+function addHist(e){
+  S.history=S.history.filter(h=>!(h.name===e.name&&h.type===e.type));
+  S.history.unshift(e);if(S.history.length>15)S.history.pop();
+  renderHist();save();
+}
+function renderHist(){
+  const el=document.getElementById('histGrid');
+  if(!S.history.length){el.innerHTML=`<div class="hist-empty">No calculations yet — select a size above.</div>`;return;}
+  el.innerHTML=S.history.map(h=>`
+    <div class="hist-item" onclick="recallHist('${h.name}','${h.type}')">
+      <div class="hi-dot"></div>
+      <div class="hi-inf">
+        <div class="hi-name">${h.name}<span class="hi-chip">${h.type}</span></div>
+        <div class="hi-meta">${h.sqmm} mm²</div>
+      </div>
+      <div class="hi-right">
+        <div class="hi-price">₹${fmtN(h.price)}</div>
+        <div class="hi-pkm">per km</div>
+      </div>
+    </div>`).join('');
+}
+function recallHist(name,type){if(S.type!==type)setType(type);selSize(name);window.scrollTo({top:0,behavior:'smooth'});}
+
+/* ════════════════════════════════════════════
+   BREAKDOWN TOGGLE
+════════════════════════════════════════════ */
+function toggleBk(){
+  const b=document.getElementById('bkToggle'),bo=document.getElementById('bkBody');
+  const op=!b.classList.contains('open');
+  b.classList.toggle('open',op);bo.classList.toggle('open',op);
+}
+
+/* ════════════════════════════════════════════
+   RESET
+════════════════════════════════════════════ */
+function resetAll(){
+  S.selected=null;inp.value='';
+  document.getElementById('srchClear').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('visible');
+  document.getElementById('actions').classList.remove('show');
+  document.getElementById('statsBar').classList.remove('show');
+  document.getElementById('bkBody').classList.remove('open');
+  document.getElementById('bkToggle').classList.remove('open');
+  S.wt={alWt:null,steelWt:null};renderWeightPanel();
+  toast('Cleared — ready for new calculation','↺');
+}
+
+/* ════════════════════════════════════════════
+   PDF EXPORT
+════════════════════════════════════════════ */
+function exportPDF(){
+  if(!S.last)return;
+  const{item,rates,c,type}=S.last;
+  const d=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+  const jw=Math.round(rates.jobWork*100);
+  let rows;
+  if(type==='ACSR') rows=`
+    <tr><td>Aluminium Weight</td><td>${fmtW(item.alWt)}</td></tr>
+    <tr><td>Steel Weight</td><td>${fmtW(item.steelWt||0)}</td></tr>
+    <tr><td>Total Weight</td><td>${fmtW(c.totWt)}</td></tr>
+    <tr class="sep"><td colspan="2"></td></tr>
+    <tr><td>Aluminium Cost</td><td>₹${fmtD(c.alC)}</td></tr>
+    <tr><td>Steel Cost</td><td>₹${fmtD(c.stC)}</td></tr>
+    <tr><td>Total Raw Cost</td><td>₹${fmtD(c.raw)}</td></tr>
+    <tr><td>Job Work (${jw}%)</td><td>₹${fmtD(c.jw)}</td></tr>
+    <tr class="sub"><td><b>Basic Price / km</b></td><td><b>₹${fmtD(c.basic)}</b></td></tr>
+    <tr><td>GST @ 18%</td><td>₹${fmtD(c.gst)}</td></tr>
+    <tr class="tot"><td><b>Final Price / km (Incl. GST)</b></td><td><b>₹${fmtN(c.final)}</b></td></tr>
+  `;
+  else if(type==='AAAC') rows=`
+    <tr><td>Al. Alloy Weight</td><td>${fmtW(item.alWt)}</td></tr>
+    <tr class="sep"><td colspan="2"></td></tr>
+    <tr><td>Total Raw Cost</td><td>₹${fmtD(c.raw)}</td></tr>
+    <tr><td>Job Work (${jw}%)</td><td>₹${fmtD(c.jw)}</td></tr>
+    <tr class="sub"><td><b>Basic Price / km</b></td><td><b>₹${fmtD(c.basic)}</b></td></tr>
+    <tr><td>GST @ 18%</td><td>₹${fmtD(c.gst)}</td></tr>
+    <tr class="tot"><td><b>Final Price / km (Incl. GST)</b></td><td><b>₹${fmtN(c.final)}</b></td></tr>
+  `;
+  else if(type==='ABC') rows=`
+    <tr><td>Al. Weight (Phase)</td><td>${fmtW(item.alWt)}</td></tr>
+    <tr><td>Alloy Weight (Neutral)</td><td>${fmtW(item.alloyWt||0)}</td></tr>
+    <tr><td>XLPE Weight</td><td>${fmtW(item.xlpeWt||0)}</td></tr>
+    <tr><td>Total Weight</td><td>${fmtW(c.totWt)}</td></tr>
+    <tr class="sep"><td colspan="2"></td></tr>
+    <tr><td>Aluminium Cost</td><td>₹${fmtD(c.alC)}</td></tr>
+    <tr><td>Alloy Cost</td><td>₹${fmtD(c.alloyC)}</td></tr>
+    <tr><td>XLPE Cost</td><td>₹${fmtD(c.xlpeC)}</td></tr>
+    <tr><td>Total Raw Cost</td><td>₹${fmtD(c.raw)}</td></tr>
+    <tr><td>Job Work (${jw}%)</td><td>₹${fmtD(c.jw)}</td></tr>
+    <tr class="sub"><td><b>Basic Price / km</b></td><td><b>₹${fmtD(c.basic)}</b></td></tr>
+    <tr><td>GST @ 18%</td><td>₹${fmtD(c.gst)}</td></tr>
+    <tr class="tot"><td><b>Final Price / km (Incl. GST)</b></td><td><b>₹${fmtN(c.final)}</b></td></tr>
+  `;
+
+  else rows=`
+    <tr><td>Aluminium Weight</td><td>${fmtW(item.alWt)}</td></tr>
+    <tr><td>XLPE Weight</td><td>${fmtW(item.xlpeWt||0)}</td></tr>
+    <tr><td>Inner Sheath Weight</td><td>${fmtW(item.innerWt||0)}</td></tr>
+    <tr><td>Armour Weight</td><td>${fmtW(item.armdWt||0)}</td></tr>
+    <tr><td>Outer Sheath Weight</td><td>${fmtW(item.outerWt||0)}</td></tr>
+    <tr><td>Total Weight</td><td>${fmtW(c.totWt)}</td></tr>
+    <tr class="sep"><td colspan="2"></td></tr>
+    <tr><td>Aluminium Cost</td><td>₹${fmtD(c.alC)}</td></tr>
+    <tr><td>XLPE Cost</td><td>₹${fmtD(c.xlpeC)}</td></tr>
+    <tr><td>Inner Sheath Cost</td><td>₹${fmtD(c.innerC)}</td></tr>
+    <tr><td>Armour Cost</td><td>₹${fmtD(c.armdC)}</td></tr>
+    <tr><td>Outer Sheath Cost</td><td>₹${fmtD(c.outerC)}</td></tr>
+    <tr><td>Total Raw Cost</td><td>₹${fmtD(c.raw)}</td></tr>
+    <tr><td>Job Work (${jw}%)</td><td>₹${fmtD(c.jw)}</td></tr>
+    <tr class="sub"><td><b>Basic Price / km</b></td><td><b>₹${fmtD(c.basic)}</b></td></tr>
+    <tr><td>GST @ 18%</td><td>₹${fmtD(c.gst)}</td></tr>
+    <tr class="tot"><td><b>Final Price / km (Incl. GST)</b></td><td><b>₹${fmtN(c.final)}</b></td></tr>
+  `;
+  const win=window.open('','_blank');
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+  <title>Costing – ${item.name}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Outfit',sans-serif;color:#1a1a2e;background:#f8f6f0;padding:36px}
+  .pg{max-width:680px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.1)}
+  .hdr{background:linear-gradient(135deg,#1a1a2e,#2d2d50);padding:32px 36px}
+  .co{font-size:22px;font-weight:900;color:#e8b84b}.cos{font-size:10px;color:#7a7d9c;font-family:monospace;letter-spacing:0.15em;text-transform:uppercase;margin-top:3px}
+  .doc{font-size:10px;color:#8888aa;font-family:monospace;letter-spacing:0.08em;text-transform:uppercase;margin-top:18px}
+  .cn{font-size:36px;font-weight:900;color:#fff;letter-spacing:-0.03em;margin-top:3px}.cs{font-size:11px;color:#7a7d9c;font-family:monospace;margin-top:3px}
+  .body{padding:32px 36px}
+  .fp{text-align:center;padding:20px 0 28px;border-bottom:2px solid #f0ede8;margin-bottom:24px}
+  .fpl{font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:#b8860b;margin-bottom:4px}
+  .fpa{font-size:42px;font-weight:900;color:#b8860b;letter-spacing:-0.04em;font-family:monospace}
+  .fps{font-size:10px;color:#aaa;font-family:monospace;letter-spacing:0.1em;margin-top:3px}
+  .rb{background:#f8f4e8;border:1px solid #e8ddb0;border-radius:8px;padding:14px 18px;margin-bottom:20px}
+  .rbt{font-size:9px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#888;margin-bottom:8px}
+  .rbl{display:flex;gap:20px;flex-wrap:wrap}.ri{font-size:12px}.rik{color:#888;margin-right:3px}.riv{font-weight:700;font-family:monospace}
+  table{width:100%;border-collapse:collapse}
+  th{background:#f0ede5;padding:9px 12px;text-align:left;font-size:9px;text-transform:uppercase;letter-spacing:0.12em;color:#777;font-weight:800}
+  td{padding:9px 12px;border-bottom:1px solid #f5f2ee;font-size:13px}td:last-child{text-align:right;font-family:monospace}
+  tr.sep td{padding:3px 0;border:none}tr.sub td{background:#fdf6e8;color:#b8860b;font-weight:700}
+  tr.tot td{background:#fff3c4;border-top:2px solid #c9921a;font-size:14px;color:#8a5e0a;font-weight:700;padding:12px}
+  .ft{border-top:1px solid #eee;padding:12px 36px;text-align:center;font-size:10px;color:#ccc;letter-spacing:0.04em}
+  .pbtn{display:block;margin:18px auto 0;background:#b8860b;color:#fff;border:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif}
+  .pwr-sw{display:none;align-items:center;gap:8px;margin-bottom:14px;padding:5px;background:var(--panel);border:1px solid var(--border);border-radius:var(--r2)}
+  .pwr-sw.show{display:flex}
+  .pwr-sw-lbl{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);padding:0 4px;white-space:nowrap}
+  .pwr-sub-btn{flex:1;padding:9px 16px;background:transparent;border:1px solid transparent;border-radius:var(--r);font-family:var(--font);font-size:0.8rem;font-weight:700;color:var(--text2);cursor:pointer;transition:all 0.22s var(--ease2);letter-spacing:0.04em}
+  .pwr-sub-btn:hover{color:var(--text)}
+  .pwr-sub-btn.active{background:linear-gradient(135deg,rgba(232,184,75,0.13),rgba(232,184,75,0.04));border-color:var(--border2);color:var(--acc);box-shadow:inset 0 1px 0 var(--border2)}
+
+  @media print{.pbtn{display:none}body{background:#fff;padding:0}.pg{box-shadow:none;border-radius:0}}</style></head><body>
+  <div class="pg"><div class="hdr">
+    <div class="co">HYPHEN CABLES PVT. LTD.</div><div class="cos">Premium Conductor Manufacturer</div>
+    <div class="doc">Costing Sheet · ${DB[type].label}</div>
+    <div class="cn">${item.name}</div>
+    <div class="cs">${(type==='ABC'||type==='PWR')?item.sqmm:item.sqmm+' mm²'} · ${item.alSize}${type==='ACSR'?' / '+item.steelSize:''} · ${d}</div>
+  </div>
+  <div class="body">
+    <div class="fp"><div class="fpl">Final Price per Kilometre</div><div class="fpa">₹${fmtN(c.final)}</div><div class="fps">INCLUDING GST @ 18%</div></div>
+    <div class="rb"><div class="rbt">Rates Applied</div><div class="rbl">${DB[type].rf.map(f=>`<div class="ri"><span class="rik">${f.lbl}:</span><span class="riv">${f.px}${rates[f.k]}</span></div>`).join('')}</div></div>
+    <table><tr><th>Description</th><th>Value</th></tr>${rows}</table>
+  </div>
+  <div class="ft">CableCost Pro v4.0 · HYPHEN CABLES PVT. LTD. · System-generated costing document.</div>
+  </div>
+  <button class="pbtn" onclick="window.print()">🖨 Print / Save PDF</button>
+  </body></html>`);
+  win.document.close();
+}
+
+/* ════════════════════════════════════════════
+   WHATSAPP — INTELLIGENT SHARE
+════════════════════════════════════════════ */
+function shareWA(){
+  if(!S.last){toast('Calculate a size first','⚠');return;}
+  document.getElementById('waOv').classList.add('open');
+  document.body.style.overflow='hidden';
+  const nameInp=document.getElementById('waPartyName');
+  nameInp.value=waLastParty;
+  document.getElementById('waClearBtn').classList.toggle('show',!!waLastParty);
+  renderWAPreview();
+  setTimeout(()=>nameInp.focus(),150);
+}
+
+function buildWAMsg(party){
+  const{item,c,type}=S.last;
+  const d=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+  const p=(party||'').trim();
+  const sep='-'.repeat(32);
+  const lines=[];
+  if(p)lines.push(`Dear *${p}*,`,'');
+  lines.push(
+    '*HYPHEN CABLES PVT. LTD.*',
+    `_Conductor Price Quotation_`,
+    `_Dated: ${d}_`,
+    sep,'',
+    `*Cable Size:*`,
+    `  ${type==='ABC'?'AB Cable':type==='PWR'?'Power Cable':'Conductor'} \u2013 ${item.name} (${item.sqmm})`,
+    '',
+    `*Basic Price:*`,
+    `  \u20b9 ${fmtN(c.basic)} per km`,
+    '',
+    `*GST @ 18%:*`,
+    `  \u20b9 ${fmtN(c.gst)} per km`,
+    '',
+    sep,
+    `\u2705 *Total Price (Incl. GST)*`,
+    `  *\u20b9 ${fmtN(c.final)} per km*`,
+    sep,'',
+    `_Note: Prices are per kilometre and subject to revision._`
+  );
+  return lines.join('\n');
+}
+
+function renderWAPreview(){
+  if(!S.last)return;
+  const{item,c,type}=S.last;
+  const d=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+  const party=(document.getElementById('waPartyName').value||'').trim();
+  const sep=`<span class="wdiv">${'-'.repeat(32)}</span>`;
+  const rows=[];
+  if(party)rows.push(`Dear <b>${party}</b>,`,'');
+  rows.push(
+    '<b>HYPHEN CABLES PVT. LTD.</b>',
+    '<i>Conductor Price Quotation</i>',
+    `<i>Dated: ${d}</i>`,
+    sep,'',
+    '<b>Cable Size:</b>',
+    `&nbsp;&nbsp;${type==='ABC'?'AB Cable':type==='PWR'?'Power Cable':'Conductor'} \u2013 ${item.name} (${item.sqmm})`,
+    '',
+    '<b>Basic Price:</b>',
+    `<span class="wprice">&nbsp;&nbsp;&#8377; ${fmtN(c.basic)} per km</span>`,
+    '',
+    '<b>GST @ 18%:</b>',
+    `&nbsp;&nbsp;&#8377; ${fmtN(c.gst)} per km`,
+    '',
+    sep,
+    '<span class="wtotal">&#9989; <b>Total Price (Incl. GST)</b></span>',
+    `<span class="wtotal"><b>&nbsp;&nbsp;&#8377; ${fmtN(c.final)} per km</b></span>`,
+    sep,'',
+    '<i>Prices per kilometre and subject to revision.</i>'
+  );
+  document.getElementById('waPreview').innerHTML=rows.join('<br>');
+}
+
+function onWAName(){
+  const v=document.getElementById('waPartyName').value;
+  waLastParty=v;
+  document.getElementById('waClearBtn').classList.toggle('show',!!v);
+  renderWAPreview();
+}
+function onWAKey(e){
+  if(e.key==='Enter'){e.preventDefault();sendWA();}
+  if(e.key==='Escape'){e.preventDefault();closeWA();}
+}
+function clearWAName(){
+  document.getElementById('waPartyName').value='';
+  waLastParty='';
+  document.getElementById('waClearBtn').classList.remove('show');
+  renderWAPreview();
+  document.getElementById('waPartyName').focus();
+}
+function copyWA(){
+  if(!S.last)return;
+  const party=(document.getElementById('waPartyName').value||'').trim();
+  navigator.clipboard.writeText(buildWAMsg(party)).then(()=>{
+    const btn=document.querySelector('.wa-copy-btn');
+    const orig=btn.textContent;
+    btn.textContent='Copied!';btn.style.color='var(--wa)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.color='';},2000);
+  }).catch(()=>toast('Copy failed — try manually','✕'));
+}
+function closeWA(){
+  document.getElementById('waOv').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeWABg(e){if(e.target===document.getElementById('waOv'))closeWA();}
+function sendWA(){
+  if(!S.last)return;
+  const party=(document.getElementById('waPartyName').value||'').trim();
+  const msg=buildWAMsg(party);
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+  closeWA();toast('Opening WhatsApp…','📲');
+}
+
+/* ════════════════════════════════════════════
+   ADMIN PANEL
+════════════════════════════════════════════ */
+function openAdmin(){
+  let h='';
+  ['ACSR','AAAC','ABC','PWR'].forEach(t=>{
+    const ico={ACSR:'⚡',AAAC:'🔩',ABC:'🔌',PWR:'🔋'}[t];
+    h+=`<div class="adm-sec">${ico} ${t} — ${DB[t].label}</div><div class="adm-grid">`;
+    DB[t].rf.forEach(f=>{h+=`<div class="adm-f"><label>${f.lbl}</label><input type="number" id="a_${t}_${f.k}" value="${S.rates[t][f.k]}" step="${f.step}" min="0"/></div>`;});
+    h+=`</div>`;
+  });
+  document.getElementById('admContent').innerHTML=h;
+  document.getElementById('admOv').classList.add('open');
+}
+function closeAdm(){document.getElementById('admOv').classList.remove('open');}
+function closeAdmBg(e){if(e.target===document.getElementById('admOv'))closeAdm();}
+function saveAdm(){
+  ['ACSR','AAAC'].forEach(t=>{
+    DB[t].rf.forEach(f=>{
+      const el=document.getElementById(`a_${t}_${f.k}`);
+      if(el)S.rates[t][f.k]=parseFloat(el.value)||0;
+    });
+  });
+  DB[S.type].rf.forEach(f=>{
+    const el=document.getElementById(`r_${f.k}`);
+    if(el)el.value=S.rates[S.type][f.k];
+  });
+  save();if(S.selected)computeAndShow();closeAdm();
+  toast('All rates saved successfully','✓');
+}
+
+/* ════════════════════════════════════════════
+   POWER CABLE SUB-TYPE
+════════════════════════════════════════════ */
+function renderPwrSubTabs(){
+  document.getElementById('psub-4c').classList.toggle('active',S.pwrSub==='4 Core');
+  document.getElementById('psub-35c').classList.toggle('active',S.pwrSub==='3.5 Core');
+}
+function setPwrSub(sub){
+  S.pwrSub=sub; S.selected=null;
+  const inp=document.getElementById('sizeInput');
+  inp.value=''; document.getElementById('srchClear').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('visible');
+  document.getElementById('actions').classList.remove('show');
+  document.getElementById('statsBar').classList.remove('show');
+  S.wt={alWt:null,steelWt:null,alloyWt:null,xlpeWt:null,innerWt:null,armdWt:null,outerWt:null};
+  wtTotalPct=0;
+  const badge=document.getElementById('wtAdjBadge');
+  if(badge)badge.classList.remove('show');
+  renderPwrSubTabs(); renderRates(); renderWeightPanel(); save();
+  toast('Switched to '+sub,'⚡');
+}
+
+/* ════════════════════════════════════════════
+   KEYBOARD SHORTCUTS
+════════════════════════════════════════════ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('waOv').classList.contains('open')){closeWA();return;}
+    if(document.getElementById('admOv').classList.contains('open')){closeAdm();return;}
+    if(document.getElementById('themePanel').classList.contains('open')){closeThemePanel();return;}
+  }
+});
+
+/* ════════════════════════════════════════════
+   PWA
+════════════════════════════════════════════ */
+let pwaP=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();pwaP=e;
+  document.getElementById('instBar').classList.add('show');
+});
+function installPWA(){if(pwaP){pwaP.prompt();pwaP.userChoice.then(()=>{pwaP=null;document.getElementById('instBar').classList.remove('show');});}}
+function dismissInst(){document.getElementById('instBar').classList.remove('show');}
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('instBar').classList.remove('show');
+  toast('App installed!','📲');
+});
+
+/* ════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════ */
+load();
+// Apply saved theme
+document.documentElement.setAttribute('data-theme',S.theme);
+document.querySelectorAll('.theme-opt').forEach(el=>{
+  el.classList.toggle('active',el.dataset.t===S.theme);
+});
+// Restore conductor type tab
+['ACSR','AAAC','ABC','PWR'].forEach(id=>{
+  const el=document.getElementById('tab-'+id.toLowerCase());
+  if(el)el.classList.toggle('active',id===S.type);
+});
+const _ph={ACSR:'e.g. Dog, Panther, 100 mm²…',AAAC:'e.g. Coyote, Wolf, 148 mm²…',ABC:'e.g. 3CX25+25, 3CX95+16+70…',PWR:'e.g. 4CX95, 3.5CX185, 4CX240…'};
+document.getElementById('sizeInput').placeholder='Type size — '+_ph[S.type];
+const _pW=document.getElementById('pwrSw');if(_pW)_pW.classList.toggle('show',S.type==='PWR');
+if(S.type==='PWR')renderPwrSubTabs();
+renderRates();renderWeightPanel();renderHist();
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>

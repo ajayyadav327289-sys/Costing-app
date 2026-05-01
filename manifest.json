@@ -1,0 +1,17 @@
+{
+  "name": "CableCost Pro v3 – HYPHEN CABLES",
+  "short_name": "CableCost",
+  "description": "Enterprise Aluminium Conductor Costing Engine for HYPHEN CABLES PVT. LTD.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#05050d",
+  "theme_color": "#080810",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "screenshots": [],
+  "lang": "en"
+}
